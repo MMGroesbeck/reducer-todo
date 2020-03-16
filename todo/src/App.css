@@ -54,3 +54,11 @@
 .done {
   text-decoration: line-through;
 }
+
+.done-date {
+  color: green;
+}
+
+.overdue-date {
+  color: red;
+}

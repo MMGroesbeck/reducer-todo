@@ -1,8 +1,12 @@
+var moment = require('moment');
+
 export const initialState = [
     {
         item: "Meet MVP",
         completed: false,
-        id: 1
+        id: 1,
+        due: moment(),
+        done: 0
     }
 ];
 
@@ -11,13 +15,14 @@ export const todoReducer = (state,action) => {
         case "TOGGLE_COMPLETED":
             return [...state.map(item=>(
                 (item.id === action.payload)? 
-                {...item, completed: !item.completed} : 
+                {...item, completed: !item.completed, done: moment()} : 
                 {...item}))];
         case "ADD_ITEM":
             return [...state, {
-                item: action.payload,
+                item: action.payload.item,
                 completed: false,
-                id: new Date()
+                id: moment(),
+                due: moment(action.payload.due, "MM/DD/YYYY")
             }];
         case "CLEAR_DONE":
             return state.filter(item=>!(item.completed));
