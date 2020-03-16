@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.todo-page{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.todo-form{
+  max-width: 50%;
+}
+
+.todo-list{
+  max-width: 65%;
+}
+
+.done {
+  text-decoration: line-through;
+}
